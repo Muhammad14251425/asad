@@ -20,6 +20,10 @@ const config = {
     extend: {
       screens: {
         "3xl": "1700px",
+        "twh": "1200px",
+        "1098": "1098px",
+        "992": "992px",
+        "400": "400px",
       },
       backgroundImage: {
         'hyundai-trucks': "url('/public/Dumper.jpg')",
@@ -65,6 +69,10 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        sparkle: {
+          "0%, 100%": { opacity: "0.75", scale: "0.9" },
+          "50%": { opacity: "1", scale: "1" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },

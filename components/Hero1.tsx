@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const Hero1 = () => {
   return (
     <div className='max-w-7xl w-full h-auto mx-auto mt-14'>
-      <div className="flex items-start w-full px-2">
+      {/* <div className="flex items-start w-full px-2">
         <div className="flex flex-col flex-grow ">
           <div className="flex items-center gap-4">
             <h2 className='text-6xl font-semibold px-2'>Our Vision</h2>
@@ -44,7 +44,7 @@ const Hero1 = () => {
       </div>
       <div className="h-[600px]">
         <LayoutGrid cards={cards} />
-      </div>
+      </div> */}
       <div className="mt-10">
         <CoreValues />
       </div>

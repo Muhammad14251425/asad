@@ -2,6 +2,8 @@ import Hero1 from "@/components/Hero1";
 import { Hero3 } from "@/components/Hero3";
 import Hero4 from "@/components/Hero4";
 import Hero from "@/components/Landingpage/Hero";
+import Try from "@/components/Try";
+import Try1 from "@/components/Try1";
 
 
 
@@ -12,7 +14,13 @@ export default function Home() {
       <div >
         <Hero />
       </div>
-      <div>
+      <div className="h-screen">
+        <Try />
+      </div>
+      <div className="h-screen">
+      <Try1 />
+      </div>
+      <div className="mt-96">
         <Hero1 />
       </div>
 

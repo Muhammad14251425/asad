@@ -1,165 +1,73 @@
-'use client'
-import { useState } from "react";
+"use client";
+import { MdMenu } from "react-icons/md";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetDescription,
+	SheetFooter,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet"
+import { useRouter } from "next/navigation";
+
+const data = [{ page: "About Us", href: "aboutus" }, { page: "Our Services", href: "/services" }, { page: "Contact Us", href: "/contactus" }]
 
 export default function SmallNavbar() {
-	const [mobileNav, setMobileNav] = useState(false);
-
-	const toggleMobileNav = () => {
-		setMobileNav(!mobileNav);
-	};
+	const router = useRouter();
 
 	return (
-		<header
-			className="sticky z-50 top-0 inset-x-0 py-6 px-2 rounded-l-full bg-[#a3e5ff]">
-			<nav className="container mx-auto">
-				<motion.button
-					initial="hide"
-					animate={mobileNav ? "show" : "hide"}
-					onClick={toggleMobileNav}
-					className="flex flex-col space-y-1 relative z-10"
-				>
-					<motion.span
-						variants={{
-							hide: {
-								rotate: 0,
-							},
-							show: {
-								rotate: 45,
-								y: 5,
-							},
-						}}
-						className="w-6 bg-white h-px block"
-					></motion.span>
-					<motion.span
-						variants={{
-							hide: {
-								opacity: 1,
-							},
-							show: {
-								opacity: 0,
-							},
-						}}
-						className="w-6 bg-white h-px block"
-					></motion.span>
-					<motion.span
-						variants={{
-							hide: {
-								rotate: 0,
-							},
-							show: {
-								rotate: -45,
-								y: -5,
-							},
-						}}
-						className="w-6 bg-white h-px block"
-					></motion.span>
-				</motion.button>
-				<AnimatePresence>
-					{mobileNav && (
-						<MotionConfig
-							transition={{
-								type: "spring",
-								bounce: 0.1,
+		<div>
+			<Sheet>
+				<SheetTrigger asChild>
+					<MdMenu className="h-7 w-7 cursor-pointer" />
+				</SheetTrigger>
+				<SheetContent className="p-6">
+					<motion.div
+						initial={{ x: "100%" }}
+						animate={{ x: 0 }}
+						exit={{ x: "100%" }}
+						transition={{ type: "spring", stiffness: 300, damping: 30 }}
+						className="bg-white h-full flex flex-col justify-center items-center"
+					>
+						<motion.ul
+							initial="hidden"
+							animate="visible"
+							exit="hidden"
+							variants={{
+								hidden: { opacity: 0, y: 20 },
+								visible: {
+									opacity: 1,
+									y: 0,
+									transition: {
+										delayChildren: 0.2,
+										staggerChildren: 0.1,
+									},
+								},
 							}}
+							className="space-y-6"
 						>
-							<motion.div
-								key="mobile-nav"
-								variants={{
-									hide: {
-										x: "-100%",
-										transition: {
-											type: "spring",
-											bounce: 0.1,
-											when: "afterChildren",
-											staggerChildren: 0.25,
-										},
-									},
-									show: {
-										x: "0%",
-										transition: {
-											type: "spring",
-											bounce: 0.1,
-											when: "beforeChildren",
-											staggerChildren: 0.25,
-										},
-									},
-								}}
-								initial="hide"
-								animate="show"
-								exit="hide"
-								className="fixed inset-0 bg-[#a3e5ff] p-6 flex flex-col justify-center space-y-10 lg:hidden"
-							>
-								<motion.ul
+							{data.map((item, index) => (
+								<motion.li
+									key={index}
 									variants={{
-										hide: {
-											y: "25%",
-											opacity: 0,
-										},
-										show: {
-											y: "0%",
-											opacity: 1,
-										},
+										hidden: { opacity: 0, y: 10 },
+										visible: { opacity: 1, y: 0 },
 									}}
-									className="list-none space-y-6"
+									className="text-2xl font-semibold text-gray-800"
+									onClick={() => router.push(`${item.href}`)}
 								>
-									<li>
-										<a href="#" className="text-5xl font-semibold text-white">
-											Link #1
-										</a>
-									</li>
-									<li>
-										<a href="#" className="text-5xl font-semibold text-white">
-											Link #2
-										</a>
-									</li>
-									<li>
-										<a href="#" className="text-5xl font-semibold text-white">
-											Link #3
-										</a>
-									</li>
-								</motion.ul>
-								<motion.div
-									variants={{
-										hide: {
-											y: "25%",
-											opacity: 0,
-										},
-										show: {
-											y: "0%",
-											opacity: 1,
-										},
-									}}
-									className="w-full h-px bg-white/30"
-								></motion.div>
-								<motion.ul
-									variants={{
-										hide: {
-											y: "25%",
-											opacity: 0,
-										},
-										show: {
-											y: "0%",
-											opacity: 1,
-										},
-									}}
-									className="list-none flex justify-center gap-x-4"
-								>
-									<li>
-										<div className="bg-white rounded-lg w-8 h-8"></div>
-									</li>
-									<li>
-										<div className="bg-white rounded-lg w-8 h-8"></div>
-									</li>
-									<li>
-										<div className="bg-white rounded-lg w-8 h-8"></div>
-									</li>
-								</motion.ul>
-							</motion.div>
-						</MotionConfig>
-					)}
-				</AnimatePresence>
-			</nav>
-		</header>
+									<SheetClose>
+										{item.page}
+									</SheetClose>
+								</motion.li>
+							))}
+						</motion.ul>
+					</motion.div>
+				</SheetContent>
+			</Sheet>
+		</div>
 	);
 }
