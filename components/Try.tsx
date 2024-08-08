@@ -1,6 +1,6 @@
 import React from 'react'
 import image from "@/public/Try/TryImage.jpg"
-import Box from "@/public/try/box.png"
+import Box from "@/public/Try/box.png"
 import Image from 'next/image'
 const Try = () => {
     return (
