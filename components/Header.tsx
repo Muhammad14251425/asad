@@ -37,7 +37,7 @@ export default function Example() {
           </a>
         </div>
         <div className="gap-5 lg:gap-10 font-light pb-3 text-lg mt-3 cursor-pointer hidden md:flex">
-          <Link href="/aboutus">
+          <Link href="/about">
           <h2 className="hover:font-medium">About Us</h2>
           </Link>
           <Link href="/services">

@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet"
 import { useRouter } from "next/navigation";
 
-const data = [{ page: "About Us", href: "aboutus" }, { page: "Our Services", href: "/services" }, { page: "Contact Us", href: "/contactus" }]
+const data = [{ page: "About Us", href: "about" }, { page: "Our Services", href: "/services" }, { page: "Contact Us", href: "/contactus" }]
 
 export default function SmallNavbar() {
 	const router = useRouter();
