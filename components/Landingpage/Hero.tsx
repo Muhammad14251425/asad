@@ -3,7 +3,7 @@ import container from "@/public/Hero1/container.jpg"
 import ship from "@/public/ship.png"
 import Image from 'next/image';
 import HeroClient from '../HeroClient';
-import AnimatedText from '../AnimatedText';
+
 
 const Hero = () => {
 
