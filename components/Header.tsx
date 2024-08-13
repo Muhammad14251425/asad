@@ -32,7 +32,7 @@ export default function Example() {
       <nav aria-label="Global" className="flex max-w-7xl mx-auto justify-between items-center ">
         <div className="flex items-center">
           <a href="/" className="-m-1.5  py-7">
-            <span className="text-slate-500 text-2xl font-semibold">SwiftShift</span>
+            <h1 className="text-black text-2xl font-semibold">3<span className="text-red-500">U</span> Logistics</h1>
             {/* <Image alt="3Ulogistics" src={Logo} className="h-28 sm:h-36 w-auto" /> */}
           </a>
         </div>

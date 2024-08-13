@@ -17,8 +17,8 @@ const ConatactUsFormClient = ({ openForm, setOpenForm }: ConatactUsFormClientPro
   }
 
   return (
-    <div className={cn('bg-white h-auto space-y-4 p-7 pb-6 w-auto mx-2 sm:mx-auto sm:w-[500px] relative rounded-3xl -mt-11',
-      openForm ? "fixed h-auto top-40 mx-auto bottom-40 right-0 left-0 " : "hidden lg:block"
+    <div className={cn('bg-white shadow-2xl drop-shadow-xl max-h-[550px] lg:max-h-[600px] origin-center h-auto space-y-4 p-7 pb-6 w-auto mx-2 sm:mx-auto sm:w-[500px] relative rounded-3xl -mt-11',
+      openForm ? "fixed h-auto top-0 mx-auto bottom-0 my-auto right-0 left-0 " : "hidden lg:block"
     )}>
       <button onClick={() => setOpenForm(false)} className="font-bold text-xl border absolute rounded-full p-4 lg:hidden -right-4 bg-white -top-4"><X /></button>
       <h2 className='text-black text-5xl'>Get in Touch</h2>
@@ -58,16 +58,15 @@ const ConatactUsFormClient = ({ openForm, setOpenForm }: ConatactUsFormClientPro
               rows={4}
             ></textarea>
           </div>
-          <AnimatedButton>
+          {/* <AnimatedButton> */}
 
-            {/* <button
+            <button
             type="submit"
             className="w-full py-2 bg-blue-600 text-white font-bold  rounded-3xl hover:bg-blue-700 transition duration-200"
             >
-           
-          </button> */}
             Submit
-          </AnimatedButton>
+          </button>
+          {/* </AnimatedButton> */}
         </form>
       </div>
     </div>

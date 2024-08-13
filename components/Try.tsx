@@ -4,7 +4,7 @@ import Box from "@/public/Try/box.png"
 import Image from 'next/image'
 const Try = () => {
     return (
-        <div className='sm:max-w-[500px] md:max-w-[700px] 992:max-w-[965px] 1098:max-w-[1080px] sm:mx-auto h-[600px] mt-40 grid 992:gap-x-5 md:grid-cols-1 992:grid-cols-5 mx-2'>
+        <div className='sm:max-w-[500px] md:max-w-[700px] 992:max-w-[965px] 1098:max-w-[1080px] xl:max-w-6xl sm:mx-auto h-[600px] mt-40 grid 992:gap-x-5 md:grid-cols-1 992:grid-cols-5 mx-2'>
             <div className='flex items-start h-full flex-shrink col-span-3 md:col-span-2'>
                 <div className='relative h-full w-full'>
                     <Image src={image} alt='lifter loading up loads' className='h-[550px] 400:h-full w-full md:h-[520px]  md:w-96 z-0 object-cover rounded-md' />
