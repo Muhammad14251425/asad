@@ -14,15 +14,13 @@ export default function Home() {
       <div >
         <Hero />
       </div>
-      <div className="h-screen">
+      <div className="">
         <Try />
       </div>
-      <div className="h-screen">
+      <div className="h-auto">
       <Try1 />
       </div>
-      <div className="mt-96">
-        <Hero1 />
-      </div>
+     
 
       {/* <div className="hidden lg:block">
         <Hero3 />

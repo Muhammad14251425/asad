@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const Hero1 = () => {
   return (
     <div className='max-w-7xl w-full h-auto mx-auto mt-14'>
-      
+
       <div className="mt-10">
         <CoreValues />
       </div>
@@ -160,7 +160,7 @@ const CoreValues = () => {
   };
 
   return (
-    <div className="flex flex-col b text-white py-4 rounded-xl bg-[#fdf5e2]">
+    <div className="flex flex-col b text-white py-4 rounded-xl ">
       <motion.h1
         className="text-6xl text-black font-bold mb-8"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -169,82 +169,86 @@ const CoreValues = () => {
       >
         Core Values
       </motion.h1>
-      <motion.div
-        className="bg-gray-900 rounded-lg p-8 shadow-2xl w-full max-w-3xl"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <motion.h2
-          className="text-4xl font-extrabold text-center mb-6 text-yellow-400"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+      <div className="flex ">
+        <div className="w-1/3" />
+
+        <motion.div
+          className="bg-gray-900 rounded-lg p-8 shadow-2xl w-full max-w-3xl"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          T.H.R.E.E - U.
-        </motion.h2>
-        <motion.ul
-          className="space-y-4 text-lg"
-          variants={listVariants}
-          initial="hidden"
-          whileInView="visible"
-        >
-          <motion.li
-            className="flex items-center"
-            variants={itemVariants}
-            whileHover="hover"
+          <motion.h2
+            className="text-4xl font-extrabold text-center mb-6 text-yellow-400"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <span className="text-2xl font-bold text-red-400 mr-4">●</span>
-            <span className="font-bold text-2xl text-yellow-400 mr-2">T</span>ransparency
-            <span className="ml-4 text-yellow-200">→ Being honest in our communication.</span>
-          </motion.li>
-          <motion.li
-            className="flex items-center"
-            variants={itemVariants}
-            whileHover="hover"
+            T.H.R.E.E - U.
+          </motion.h2>
+          <motion.ul
+            className="space-y-4 text-lg"
+            variants={listVariants}
+            initial="hidden"
+            whileInView="visible"
           >
-            <span className="text-2xl font-bold text-orange-400 mr-4">●</span>
-            <span className="font-bold text-2xl text-yellow-400 mr-2">H</span>umility
-            <span className="ml-4 text-yellow-200">→ Humble in our achievements.</span>
-          </motion.li>
-          <motion.li
-            className="flex items-center"
-            variants={itemVariants}
-            whileHover="hover"
-          >
-            <span className="text-2xl font-bold text-yellow-400 mr-4">●</span>
-            <span className="font-bold text-2xl text-yellow-400 mr-2">R</span>eliability
-            <span className="ml-4 text-yellow-200">→ Establishing trust with our clients.</span>
-          </motion.li>
-          <motion.li
-            className="flex items-center"
-            variants={itemVariants}
-            whileHover="hover"
-          >
-            <span className="text-2xl font-bold text-green-400 mr-4">●</span>
-            <span className="font-bold text-2xl text-yellow-400 mr-2">E</span>xcellence
-            <span className="ml-4 text-yellow-200">→ Delivering exceptional services to our clients.</span>
-          </motion.li>
-          <motion.li
-            className="flex items-center"
-            variants={itemVariants}
-            whileHover="hover"
-          >
-            <span className="text-2xl font-bold text-blue-400 mr-4">●</span>
-            <span className="font-bold text-2xl text-yellow-400 mr-2">E</span>mpathy
-            <span className="ml-4 text-yellow-200">→ Looking after our own.</span>
-          </motion.li>
-          <motion.li
-            className="flex items-center"
-            variants={itemVariants}
-            whileHover="hover"
-          >
-            <span className="text-2xl font-bold text-purple-400 mr-4">●</span>
-            <span className="font-bold text-2xl text-yellow-400 mr-2">U</span>nwavering
-            <span className="ml-4 text-yellow-200">→ Executing with firm determination.</span>
-          </motion.li>
-        </motion.ul>
-      </motion.div>
+            <motion.li
+              className="flex items-center"
+              variants={itemVariants}
+              whileHover="hover"
+            >
+              <span className="text-2xl font-bold text-red-400 mr-4">●</span>
+              <span className="font-bold text-2xl text-yellow-400 mr-2">T</span>ransparency
+              <span className="ml-4 text-yellow-200">→ Being honest in our communication.</span>
+            </motion.li>
+            <motion.li
+              className="flex items-center"
+              variants={itemVariants}
+              whileHover="hover"
+            >
+              <span className="text-2xl font-bold text-orange-400 mr-4">●</span>
+              <span className="font-bold text-2xl text-yellow-400 mr-2">H</span>umility
+              <span className="ml-4 text-yellow-200">→ Humble in our achievements.</span>
+            </motion.li>
+            <motion.li
+              className="flex items-center"
+              variants={itemVariants}
+              whileHover="hover"
+            >
+              <span className="text-2xl font-bold text-yellow-400 mr-4">●</span>
+              <span className="font-bold text-2xl text-yellow-400 mr-2">R</span>eliability
+              <span className="ml-4 text-yellow-200">→ Establishing trust with our clients.</span>
+            </motion.li>
+            <motion.li
+              className="flex items-center"
+              variants={itemVariants}
+              whileHover="hover"
+            >
+              <span className="text-2xl font-bold text-green-400 mr-4">●</span>
+              <span className="font-bold text-2xl text-yellow-400 mr-2">E</span>xcellence
+              <span className="ml-4 text-yellow-200">→ Delivering exceptional services to our clients.</span>
+            </motion.li>
+            <motion.li
+              className="flex items-center"
+              variants={itemVariants}
+              whileHover="hover"
+            >
+              <span className="text-2xl font-bold text-blue-400 mr-4">●</span>
+              <span className="font-bold text-2xl text-yellow-400 mr-2">E</span>mpathy
+              <span className="ml-4 text-yellow-200">→ Looking after our own.</span>
+            </motion.li>
+            <motion.li
+              className="flex items-center"
+              variants={itemVariants}
+              whileHover="hover"
+            >
+              <span className="text-2xl font-bold text-purple-400 mr-4">●</span>
+              <span className="font-bold text-2xl text-yellow-400 mr-2">U</span>nwavering
+              <span className="ml-4 text-yellow-200">→ Executing with firm determination.</span>
+            </motion.li>
+          </motion.ul>
+        </motion.div>
+      </div>
     </div>
   );
 };

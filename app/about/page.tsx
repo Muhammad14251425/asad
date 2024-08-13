@@ -5,6 +5,7 @@ import MainImage from "@/public/aboutus/main.jpg";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import Hero1 from '@/components/Hero1';
 
 const containerVariants = {
   hidden: {},
@@ -29,19 +30,19 @@ const bounceVariants = {
 };
 const AboutUs = () => {
   const text = "About Us";
-  const [blur , setBlur] = useState(true)
+  const [blur, setBlur] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
       setBlur(false)
-    },1700)
-  },[])
+    }, 1700)
+  }, [])
 
 
   return (
     <div className='max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-5xl xl:max-w-7xl px-2 mx-auto'>
       <div className='my-6 relative mb-20'>
-        <Image priority src={MainImage} alt='Trucks' className={cn('h-[500px] object-cover rounded-sm w-full', blur ? "blur-sm" : "blur-none" )} />
+        <Image priority src={MainImage} alt='Trucks' className={cn('h-[500px] object-cover rounded-sm w-full', blur ? "blur-sm" : "blur-none")} />
         <motion.div
           className='absolute left-14 top-20 flex space-x-2'
           variants={containerVariants}
@@ -60,9 +61,11 @@ const AboutUs = () => {
         </motion.div>
       </div>
       <VisionMission />
-      {/* <div className="h-[600px]">
-        <LayoutGrid cards={cards} />
-        </div> */}
+
+
+      <div className="mt-10">
+        <Hero1 />
+      </div>
     </div>
   );
 }

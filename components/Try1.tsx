@@ -24,7 +24,7 @@ const Try1 = () => {
     //     </div>
     // </div>
 
-    <div className="sm:max-w-[500px] md:max-w-[700px] 992:max-w-[965px] 1098:max-w-[1080px] text-center sm:mx-auto h-[600px] mt-40 mx-2">
+    <div className="sm:max-w-[500px] md:max-w-[700px] 992:max-w-[965px] 1098:max-w-[1080px] text-center sm:mx-auto h-auto mt-20 mx-2">
         <h3 className="text-[#E11D07] text-xl font-bold">Insight and trends</h3>
         <h2 className="text-5xl font-bold mt-2">Recent articles</h2>
         <p className="text-gray-400 text-lg max-w-xl mx-auto mt-8">Follow our latest news and thoughts which focuses exclusively on insight, industry trends, top news headlines.</p>

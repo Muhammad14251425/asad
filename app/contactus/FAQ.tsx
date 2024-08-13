@@ -2,6 +2,30 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { FaEnvelope } from 'react-icons/fa';
 
+const accordionData = [
+    {
+        value: "item-1",
+        trigger: "What makes 3U Logistics different from other messaging apps?",
+        content: "3U Logistics is unique because of its emphasis on security and customization options.",
+    },
+    {
+        value: "item-2",
+        trigger: "How secure are my conversations on 3U Logistics?",
+        content: "3U Logistics uses end-to-end encryption to ensure your conversations are private.",
+    },
+    {
+        value: "item-3",
+        trigger: "Can I personalize my 3U Logistics experience?",
+        content: "Yes, 3U Logistics offers various personalization options to suit your preferences.",
+    },
+    {
+        value: "item-4",
+        trigger: "What group features does 3U Logistics offer?",
+        content: "3U Logistics offers robust group features including group chats, shared media, and more.",
+    },
+];
+
+
 const FAQ = () => {
     return (
         <div className="flex flex-col lg:flex-row mt-20 mb-10 max-w-md gap-3 sm:max-w-lg md:max-w-2xl lg:max-w-5xl xl:max-w-7xl px-2 mx-auto ">
@@ -27,30 +51,12 @@ const FAQ = () => {
             </div>
             <div className="lg:w-1/2">
                 <Accordion type="single" collapsible>
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className='text-left'>What makes 3U Logistics different from other messaging apps?</AccordionTrigger>
-                        <AccordionContent>
-                            3U Logistics is unique because of its emphasis on security and customization options.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className='text-left'>How secure are my conversations on 3U Logistics?</AccordionTrigger>
-                        <AccordionContent>
-                            3U Logistics uses end-to-end encryption to ensure your conversations are private.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className='text-left'>Can I personalize my 3U Logistics experience?</AccordionTrigger>
-                        <AccordionContent>
-                            Yes, 3U Logistics offers various personalization options to suit your preferences.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-4">
-                        <AccordionTrigger className='text-left'>What group features does 3U Logistics offer?</AccordionTrigger>
-                        <AccordionContent>
-                            3U Logistics offers robust group features including group chats, shared media, and more.
-                        </AccordionContent>
-                    </AccordionItem>
+                    {accordionData.map((item) => (
+                        <AccordionItem key={item.value} value={item.value}>
+                            <AccordionTrigger className="text-left">{item.trigger}</AccordionTrigger>
+                            <AccordionContent>{item.content}</AccordionContent>
+                        </AccordionItem>
+                    ))}
                 </Accordion>
             </div>
         </div>

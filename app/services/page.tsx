@@ -99,7 +99,7 @@ export default function ShiningButton() {
 
     return (
         <div className="overflow-hidden">
-            <div className="max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-5xl xl:max-w-7xl px-2 pb-16 mx-auto">
+            <div className="max-w-md sm:max-w-lg md:max-w-2xl lg:min-h-screen lg:max-w-5xl xl:max-w-7xl px-2 pb-16 mx-auto">
                 <div className="md:grid md:grid-cols-2 gap-5">
                     <div className="mt-6 md:mt-32">
                         {/* <h1 className="text-5xl font-bold">Our Services</h1> */}
@@ -112,7 +112,7 @@ export default function ShiningButton() {
                             {text.split("").map((letter, index) => (
                                 <motion.span
                                     key={index}
-                                    className='text-6xl font-bold'
+                                    className='text-5xl xl:text-6xl font-bold'
                                     variants={bounceVariants}
                                 >
                                     {letter}
