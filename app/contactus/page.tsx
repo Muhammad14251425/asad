@@ -4,7 +4,28 @@ import ConatactUsFormClient from './ConatactUsFormClient'
 import FAQ from './FAQ'
 import { Button } from '@/components/ui/button'
 import { motion } from "framer-motion"
-import { bounceVariants, containerVariants } from '../about/page'
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2, // Controls the delay between each letter's animation
+    },
+  },
+};
+
+const bounceVariants = {
+  hidden: { y: -100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 500,
+      damping: 20,
+    },
+  },
+};
 
 const data = [
   {

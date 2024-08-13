@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export const containerVariants = {
+const containerVariants = {
   hidden: {},
   visible: {
     transition: {
@@ -15,7 +15,7 @@ export const containerVariants = {
   },
 };
 
-export const bounceVariants = {
+const bounceVariants = {
   hidden: { y: -100, opacity: 0 },
   visible: {
     y: 0,
