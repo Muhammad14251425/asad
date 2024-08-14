@@ -1,6 +1,4 @@
 "use client"
-
-import AnimatedButton from "@/components/AnimatedButton"
 import { cn } from "@/lib/utils"
 import { X } from "lucide-react"
 import { FormEvent } from "react"

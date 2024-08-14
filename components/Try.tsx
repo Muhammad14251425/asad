@@ -8,7 +8,7 @@ const Try = () => {
             <div className='flex items-start h-full flex-shrink col-span-3 md:col-span-2'>
                 <div className='relative h-full w-full'>
                     <Image src={image} alt='lifter loading up loads' className='h-[550px] 400:h-full w-full md:h-[520px]  md:w-96 z-0 object-cover rounded-md' />
-                    <div className='bg-[#E11D07] h-56 w-48 md:h-60 md:w-56 md:right-0 md:bottom-20 bottom-20 400:bottom-10 992:h-64 992:w-52 gap-1 z-20 absolute rounded-sm right-10 400:right-8 twh:-right-1 1098:right-9 992:right-0 992:bottom-40 flex flex-col font-semibold text-white items-center justify-center'>
+                    <div className='bg-[#E11D07] h-56 w-48 md:h-60 md:w-56 md:right-0 md:bottom-20 bottom-20 400:bottom-10 992:h-64 992:w-52 gap-1 z-10 absolute rounded-sm right-10 400:right-8 twh:-right-1 1098:right-9 992:right-0 992:bottom-40 flex flex-col font-semibold text-white items-center justify-center'>
                         <Image src={Box} alt='box' className='h-28 w-28 object-cover ' />
                         <p className='text-4xl tracking-wider'>0m</p>
                         <p className='text-[14px]'>Delivered Goods</p>

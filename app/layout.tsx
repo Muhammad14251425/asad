@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Landingpage/Hero";
+import AppointmentContextProvider from "@/context/AppointmentContext";
+import ContactUsClient from "@/components/ContactUsClient";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "500", "700"] });
 
@@ -21,9 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`min-h-screen flex flex-col ${roboto.className}`}>
+        <AppointmentContextProvider>
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow">
+            <ContactUsClient />
+            {children}
+            </main>
           <Footer />
+        </AppointmentContextProvider>
       </body>
     </html>
   );

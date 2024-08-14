@@ -4,11 +4,16 @@ import { Button } from "./ui/button"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react";
 import SmallNavbar from "./Navbar/SmallNavbar";
+import { sendMail } from "@/lib/mail";
+import { useAppointmentContext } from "@/context/AppointmentContext";
 
 export default function Example() {
   const { scrollY } = useScroll();
 
   const [hidden, setHidden] = useState(false);
+
+  const { setShowAppointment } = useAppointmentContext();
+  
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -18,6 +23,17 @@ export default function Example() {
       setHidden(false);
     }
   });
+  const sendData = {
+    to: "muhammaddaniyal733.com@gmail.com",
+    name: "Muhammad Fawwad Ahmed",
+    message: "sc",
+    status: "Main nhi btaoun ga"
+  }
+  const sendEmail = async () => {
+    console.log("tried sending mail")
+    await sendMail(sendData)
+    console.log("sent mail")
+  }
 
   return (
     <motion.header
@@ -38,17 +54,20 @@ export default function Example() {
         </div>
         <div className="gap-5 lg:gap-10 font-light pb-3 text-lg mt-3 cursor-pointer hidden md:flex">
           <Link href="/about">
-          <h2 className="hover:font-medium">About Us</h2>
+            <h2 className="hover:font-medium">About Us</h2>
           </Link>
           <Link href="/services">
-          <h2 className="hover:font-medium">Our Services</h2>
+            <h2 className="hover:font-medium">Our Services</h2>
           </Link>
           <Link href="/contactus">
             <h2 className="hover:font-medium">Contact Us</h2>
           </Link>
+          <Link href="/blogs">
+            <h2 className="hover:font-medium">Blogs</h2>
+          </Link>
         </div>
         <div className="flex items-center gap-x-3">
-          <Button variant="destructive" className="rounded-full">Book an Appointment</Button>
+          <Button variant="destructive" onClick={() => setShowAppointment(true)} className="rounded-full">Book an Appointment</Button>
           <div className="md:hidden">
             <SmallNavbar />
           </div>
