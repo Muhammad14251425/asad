@@ -17,7 +17,7 @@ const Blogs = () => {
                 {
                     blogData.map((item, index) => (
                         <div key={index}>
-                            <Image src={item.image1} alt={item.heading1} height={400} width={400} className='object-cover h-96 w-auto rounded-t-md' />
+                            <Image priority src={item.image1} alt={item.heading1} height={400} width={400} className='object-cover h-96 w-auto rounded-t-md' />
                             <div className='border-2 px-2 pb-2 border-t-0 min-h-52 rounded-b-md flex flex-col justify-between '>
                                 <h2 className='pt-4 text-2xl font-medium leading-10 w-[95%] '>{item.heading1}</h2>
                                 <Link href={`/blogs/${item.id}`} className=''>
