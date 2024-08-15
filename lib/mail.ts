@@ -22,63 +22,9 @@ export async function sendMail({
 }) {
   const mailOptions = {
     from: process.env.EMAIL,
-    to: to,
+    to: ["muhammadfawwad5353@gmail.com"],
   };
   try {
-    // const mail = await transporter.sendMail({
-    //   ...mailOptions,
-    //   subject: `Payment ${status} `,
-    //   text: `Hi ${name}`,
-    //   html: `<h1>The Payment Status of Your Order is ${status}</h1><p>For More Details Contact Below</p>`,
-    // });
-    // const mail = await transporter.sendMail({
-    //   ...mailOptions,
-    //   subject: `Payment ${status}`,
-    //   text: `Hi ${name}, The Payment Status of Your Order is ${status}. For more details, please contact us.`,
-    //   html: `
-    //     <div style="font-family: Arial, sans-serif; color: #333;">
-    //       <table style="width: 100%; max-width: 600px; margin: auto; border-collapse: collapse;">
-    //         <thead>
-    //           <tr>
-    //             <th style="padding: 20px; text-align: center; background-color: #007BFF; color: #fff;">
-    //               <h1 style="margin: 0; font-size: 24px;">Payment ${status}</h1>
-    //             </th>
-    //           </tr>
-    //         </thead>
-    //         <tbody>
-    //           <tr>
-    //             <td style="padding: 20px; text-align: left; background-color: #f7f7f7;">
-    //               <p style="font-size: 18px;">Hi ${name},</p>
-    //               <p style="font-size: 16px;">
-    //                 The payment status of your order is <strong>${status}</strong>.
-    //               </p>
-    //               <p style="font-size: 16px; color: #555;">
-    //                 If you have any questions or need further assistance, please contact us using the details below.
-    //               </p>
-    //               <p style="margin-top: 20px; font-size: 16px;">
-    //                 Best regards,<br />
-    //                 <strong>Your Company Name</strong>
-    //               </p>
-    //             </td>
-    //           </tr>
-    //           <tr>
-    //             <td style="padding: 20px; background-color: #007BFF; color: #fff; text-align: center;">
-    //               <p style="margin: 0; font-size: 14px;">
-    //                 Contact us: <a href="mailto:support@yourcompany.com" style="color: #fff; text-decoration: underline;">support@yourcompany.com</a> | Phone: (123) 456-7890
-    //               </p>
-    //               <p style="margin: 0; font-size: 14px; margin-top: 10px;">
-    //                 Follow us on:
-    //                 <a href="https://twitter.com/yourcompany" style="color: #fff; text-decoration: underline;">Twitter</a> |
-    //                 <a href="https://facebook.com/yourcompany" style="color: #fff; text-decoration: underline;">Facebook</a> |
-    //                 <a href="https://instagram.com/yourcompany" style="color: #fff; text-decoration: underline;">Instagram</a>
-    //               </p>
-    //             </td>
-    //           </tr>
-    //         </tbody>
-    //       </table>
-    //     </div>
-    //   `,
-    // });
     const mail = await transporter.sendMail({
       ...mailOptions,
       subject: `Payment ${status}`,
@@ -128,12 +74,13 @@ export async function sendMail({
         </div>
       `,
     });
-    
-
     return mail;
   } catch (error) {
-    console.log("Unable to send email");
-    return NextResponse.error();
+    console.log(error);
+    // return NextResponse.error();
   }
   console.log(to, name, message, status);
 }
+
+
+// ["asadomer214@gmail.com","obaidullahomer475@gmail.com","umer.farooq@sapphiretextiles.com","abdullah.umar8448@gmail.com "],

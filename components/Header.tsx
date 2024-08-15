@@ -23,17 +23,6 @@ export default function Example() {
       setHidden(false);
     }
   });
-  const sendData = {
-    to: "muhammaddaniyal733.com@gmail.com",
-    name: "Muhammad Fawwad Ahmed",
-    message: "sc",
-    status: "Main nhi btaoun ga"
-  }
-  const sendEmail = async () => {
-    console.log("tried sending mail")
-    await sendMail(sendData)
-    console.log("sent mail")
-  }
 
   return (
     <motion.header
@@ -67,7 +56,7 @@ export default function Example() {
           </Link>
         </div>
         <div className="flex items-center gap-x-3">
-          <Button variant="destructive" onClick={() => setShowAppointment(true)} className="rounded-full">Book an Appointment</Button>
+          <Button variant="destructive" onClick={() => {setShowAppointment(true)}} className="rounded-full">Book an Appointment</Button>
           <div className="md:hidden">
             <SmallNavbar />
           </div>

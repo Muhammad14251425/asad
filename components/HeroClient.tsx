@@ -65,7 +65,7 @@ const HeroClient = () => {
                                 z: checkIndex === index ? 0 : -10
                             }}
                             transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className={`absolute cursor-pointer top-20 left-11 space-y-4 text-${item.color} z-40 text-left`}
+                            className={`absolute cursor-pointer top-20 left-11 space-y-4 text-${item.color} z-20 text-left`}
                         >
                             <h2 className='text-2xl font-semibold'>{item.heading}</h2>
                             <p className='text-lg'>{item.text}</p>

@@ -64,7 +64,7 @@ const Hero = () => {
                 </div>
                 {/* <AnimatedText/> */}
                 <div className='mt-8 relative'>
-                    <Image src={container} alt='conatiner' className='h-96 object-cover rounded-b-md' />
+                    <Image src={container} alt='conatiner' priority className='h-96 object-cover rounded-b-md' />
                     <div className='h-8 w-8 bg-slate-50 absolute top-0 left-0' />
                     <div className='h-8 w-8 bg-slate-50 absolute top-16 left-0' />
                     <div className='h-8 w-8 bg-slate-50 absolute top-0 left-16' />

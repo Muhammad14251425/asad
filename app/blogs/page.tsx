@@ -8,7 +8,7 @@ const Blogs = () => {
         <div className='max-w-7xl px-4 mx-auto'>
             <div className='flex items-center'>
                 <div className='w-[1%] h-24 border-l-2 ' />
-                <div className='mt-10 w-[97%]'>
+                <div className='mt-10 w-[97%] ml-2 lg:ml-1'>
                     <h1 className='font-semibold text-2xl'>RECENT</h1>
                     <h1 className='text-gray-500 font-light text-2xl'>NEWS</h1>
                 </div>

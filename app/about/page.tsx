@@ -40,33 +40,41 @@ const AboutUs = () => {
 
 
   return (
-    <div className='max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-5xl xl:max-w-7xl px-2 mx-auto'>
-      <div className='my-6 relative mb-20'>
-        <Image priority src={MainImage} alt='Trucks' className={cn('h-[500px] object-cover rounded-sm w-full', blur ? "blur-sm" : "blur-none")} />
-        <motion.div
-          className='absolute left-14 top-20 flex space-x-2'
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+    <div className='px-2 mx-auto max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-5xl xl:max-w-7xl'>
+  <div className='my-6 relative mb-20'>
+    <Image
+      priority
+      src={MainImage}
+      alt='Trucks'
+      className={cn(
+        'w-full h-[20vh] sm:h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh] object-cover rounded-sm',
+        blur ? 'blur-sm' : 'blur-none'
+      )}
+    />
+    <motion.div
+      className='absolute left-4 sm:left-10 md:left-14 top-10 sm:top-14 md:top-20 flex space-x-2'
+      variants={containerVariants}
+      initial='hidden'
+      animate='visible'
+    >
+      {text.split('').map((letter, index) => (
+        <motion.span
+          key={index}
+          className='text-white text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider'
+          variants={bounceVariants}
         >
-          {text.split("").map((letter, index) => (
-            <motion.span
-              key={index}
-              className='text-white text-9xl font-bold tracking-[15px]'
-              variants={bounceVariants}
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </motion.div>
-      </div>
-      <VisionMission />
+          {letter}
+        </motion.span>
+      ))}
+    </motion.div>
+  </div>
+  <VisionMission />
 
+  <div className='mt-10'>
+    <Hero1 />
+  </div>
+</div>
 
-      <div className="mt-10">
-        <Hero1 />
-      </div>
-    </div>
   );
 }
 
