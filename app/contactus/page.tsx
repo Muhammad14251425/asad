@@ -50,7 +50,7 @@ const ContactUs = () => {
   return (
     <div>
       <div className='bg-[#e6f0fe] lg:min-h-screen  h-auto pb-10 z-0'>
-        <div className='max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-5xl xl:max-w-7xl px-2 mx-auto grid lg:grid-cols-5 gap-x-0 pt-10 sm:pt-20'>
+        <div className='max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-5xl xl:max-w-7xl px-4 mx-auto grid lg:grid-cols-5 gap-x-0 pt-10 sm:pt-20'>
           <div className='lg:col-span-5 xl:col-span-3 text-gray-500 text-lg '>
             <div className='lg:grid lg:grid-cols-2 md:grid md:grid-cols-3 lg:col-span-1'>
               <div className='md:col-span-2 lg:col-span-1 sm:text-center md:text-left'>
@@ -64,7 +64,7 @@ const ContactUs = () => {
                   {text.split("").map((letter, index) => (
                     <motion.span
                       key={index}
-                      className='text-6xl font-bold text-black'
+                      className='text-5xl sm:text-6xl font-bold text-black'
                       variants={bounceVariants}
                     >
                       {letter}

@@ -6,10 +6,11 @@ import { useState } from "react";
 import SmallNavbar from "./Navbar/SmallNavbar";
 import { sendMail } from "@/lib/mail";
 import { useAppointmentContext } from "@/context/AppointmentContext";
+import { useRouter } from "next/navigation";
 
 export default function Example() {
   const { scrollY } = useScroll();
-
+  const router = useRouter()
   const [hidden, setHidden] = useState(false);
 
   const { setShowAppointment } = useAppointmentContext();
@@ -37,8 +38,7 @@ export default function Example() {
       <nav aria-label="Global" className="flex max-w-7xl mx-auto justify-between items-center ">
         <div className="flex items-center">
           <a href="/" className="-m-1.5  py-7">
-            <h1 className="text-black text-2xl font-semibold">3<span className="text-red-500">U</span> Logistics</h1>
-            {/* <Image alt="3Ulogistics" src={Logo} className="h-28 sm:h-36 w-auto" /> */}
+            <h1 className="text-black  text-xl 400:text-2xl font-semibold">3<span className="text-red-500">U</span> Logistics</h1>
           </a>
         </div>
         <div className="gap-5 lg:gap-10 font-light pb-3 text-lg mt-3 cursor-pointer hidden md:flex">
@@ -56,7 +56,7 @@ export default function Example() {
           </Link>
         </div>
         <div className="flex items-center gap-x-3">
-          <Button variant="destructive" onClick={() => {setShowAppointment(true)}} className="rounded-full">Book an Appointment</Button>
+          <Button variant="destructive" onClick={() => {setShowAppointment(true); router.push("#")}} className="rounded-full">Book an Appointment</Button>
           <div className="md:hidden">
             <SmallNavbar />
           </div>
