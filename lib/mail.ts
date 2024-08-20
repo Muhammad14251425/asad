@@ -100,7 +100,7 @@ export async function sendContactUsMail(
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: ["muhammadfawwad88@gmail.com"],
+    to: ["asadomer214@gmail.com"],
   };
 
   try {
