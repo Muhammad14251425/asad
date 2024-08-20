@@ -19,6 +19,8 @@ import { useEffect, useRef, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { Search } from "./Search";
 
+
+
 const ContactUsClient = () => {
   const { pending } = useFormStatus()
   const [loading, setLoading] = useState(false)
@@ -31,13 +33,45 @@ const ContactUsClient = () => {
   const [state, formAction] = useFormState(sendContactUsMail, { status: "", message: "" })
   const { status, message } = state;
 
+  const validateForm = () => {
+    const form = ref.current;
+    if (!form) return false;
+
+    const requiredFields = form.querySelectorAll("[required]");
+    for (let i = 0; i < requiredFields.length; i++) {
+      if (!(requiredFields[i] as HTMLInputElement).value) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const checkLoading = () => {
+    if (!validateForm()) {
+      alert("Please fill all required fields."); // Optional: You can show an alert or a message to the user
+      return;
+    }
+    setLoading(true)
+  }
+
+
+  useEffect(() => {
+    if (status === "success") {
+      ref.current?.reset()
+    }
+  }, [status])
+
   const deliveryType = (e: string) => {
     setDeliveryTyp(e)
   }
 
   const onSubmit = async (payload: FormData) => {
-    await setLoading(true);
-    await formAction(payload);
+    if (!validateForm()) {
+      alert("Please fill all required fields."); // Optional: You can show an alert or a message to the user
+      return;
+    }
+    setLoading(true);
+    formAction(payload);
   }
   useEffect(() => {
     let timeout: any;
@@ -71,6 +105,7 @@ const ContactUsClient = () => {
                 Your Name <span className="text-red-500">*</span>
               </Label>
               <Input
+                required
                 className="mt-2 sm:mt-4 rounded-full max-w-xl mx-auto pl-4 sm:pl-6 py-4 sm:py-6"
                 placeholder="Name"
                 name="name"
@@ -81,6 +116,7 @@ const ContactUsClient = () => {
                 Phone Number <span className="text-red-500">*</span>
               </Label>
               <Input
+                required
                 className="mt-2 sm:mt-4 rounded-full max-w-xl mx-auto pl-4 sm:pl-6 py-4 sm:py-6"
                 placeholder="Phone Number"
                 type="number"
@@ -92,6 +128,7 @@ const ContactUsClient = () => {
                 Your Address <span className="text-red-500">*</span>
               </Label>
               <Input
+                required
                 className="mt-2 sm:mt-4 rounded-full max-w-xl mx-auto pl-4 sm:pl-6 py-4 sm:py-6"
                 placeholder="Address"
                 type="text"
@@ -103,6 +140,7 @@ const ContactUsClient = () => {
                 Your Address <span className="text-red-500">*</span>
               </Label>
               <Input
+                required
                 value={value}
                 className="mt-2 sm:mt-4 rounded-full max-w-xl mx-auto pl-4 sm:pl-6 py-4 sm:py-6"
                 placeholder="Address"
@@ -112,9 +150,10 @@ const ContactUsClient = () => {
             </div>
             <div className="w-full">
               <Label htmlFor="email" className="text-white w-full mb-4 text-lg sm:text-xl max-w-2 mx-auto px-4 sm:px-6 md:px-16">
-                E-mail Address
+                E-mail Address <span className="text-red-500">*</span>
               </Label>
               <Input
+                required
                 className="mt-2 sm:mt-4 rounded-full max-w-xl mx-auto pl-4 sm:pl-6 py-4 sm:py-6"
                 placeholder="Email"
                 type="email"
@@ -125,7 +164,7 @@ const ContactUsClient = () => {
               <div className="flex w-full text-white text-2xl sm:text-3xl lg:text-4xl py-4 justify-center">
                 <h2>Delivery Type</h2>
               </div>
-              <Select onValueChange={deliveryType} name="deliveryType">
+              <Select required onValueChange={deliveryType} name="deliveryType">
                 <SelectTrigger className="w-full rounded-full py-4 sm:py-6 mt-4 font-bold max-w-xl pl-4 sm:pl-6 mx-auto">
                   <SelectValue placeholder="Delivery Types" />
                 </SelectTrigger>
@@ -143,38 +182,38 @@ const ContactUsClient = () => {
               <h2 className="text-white ml-4 sm:ml-6 text-lg">From</h2>
               <h2 className="text-white ml-4 sm:ml-6 text-lg hidden sm:block">To</h2>
               {deliveryTyp === "area" &&
-                <Input name="from" placeholder="Add an area" className="w-full rounded-full" />
+                <Input required name="from" placeholder="Add an area" className="w-full rounded-full" />
               }
-              {deliveryTyp !== "area" && 
-                <Select name="from">
-                <SelectTrigger disabled={deliveryTyp === ""} className="w-full py-4 sm:py-6 rounded-full -mt-2 max-w-xl pl-4 sm:pl-6 mx-auto">
-                  <SelectValue placeholder={deliveryTyp === "city" ? "City" : deliveryTyp === "country" ? "Country" : deliveryTyp === "area" ? "Area" : "Delivery Types"} />
-                </SelectTrigger>
-                <SelectContent className="rounded-3xl">
-                  <SelectGroup>
-                    {deliveryTyp === "city" &&
-                      citiesInPakistan.map((data, index) => (
-                        <SelectItem value={data} key={index}>
-                          {data}
-                        </SelectItem>
-                      ))}
-                    {deliveryTyp === "country" &&
-                      countries.map((data, index) => (
-                        <SelectItem value={data} key={index}>
-                          {data}
-                        </SelectItem>
-                      ))}
-                    {deliveryTyp === "area" &&
-                      <Input name="from" placeholder="Add an area" className="w-full rounded-full" />
-                    }
-                  </SelectGroup>
-                </SelectContent>
-              </Select>}
+              {deliveryTyp !== "area" &&
+                <Select required name="from">
+                  <SelectTrigger disabled={deliveryTyp === ""} className="w-full py-4 sm:py-6 rounded-full -mt-2 max-w-xl pl-4 sm:pl-6 mx-auto">
+                    <SelectValue placeholder={deliveryTyp === "city" ? "City" : deliveryTyp === "country" ? "Country" : deliveryTyp === "area" ? "Area" : "Delivery Types"} />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-3xl">
+                    <SelectGroup>
+                      {deliveryTyp === "city" &&
+                        citiesInPakistan.map((data, index) => (
+                          <SelectItem value={data} key={index}>
+                            {data}
+                          </SelectItem>
+                        ))}
+                      {deliveryTyp === "country" &&
+                        countries.map((data, index) => (
+                          <SelectItem value={data} key={index}>
+                            {data}
+                          </SelectItem>
+                        ))}
+                      {deliveryTyp === "area" &&
+                        <Input name="from" placeholder="Add an area" className="w-full rounded-full" />
+                      }
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>}
               <h2 className="text-white ml-4 sm:ml-6 text-lg sm:hidden">To</h2>
               {deliveryTyp === "area" &&
-                <Input name="to" placeholder="Add an area" className="w-full rounded-full" />
+                <Input required name="to" placeholder="Add an area" className="w-full rounded-full" />
               }
-              {deliveryTyp !== "area" && <Select name="to">
+              {deliveryTyp !== "area" && <Select required name="to">
                 <SelectTrigger disabled={deliveryTyp === ""} className="w-full py-4 sm:py-6 rounded-full -mt-2 max-w-xl pl-4 sm:pl-6 mx-auto">
                   <SelectValue placeholder={deliveryTyp === "city" ? "City" : deliveryTyp === "country" ? "Country" : deliveryTyp === "area" ? "Area" : "Delivery Types"} />
                 </SelectTrigger>
@@ -207,7 +246,7 @@ const ContactUsClient = () => {
                 size="lg"
                 variant="destructive"
                 disabled={disableButton}
-                onClick={() => setLoading(true)}
+                onClick={checkLoading}
               >
                 {loading ? (
                   <svg aria-hidden="true" role="status" className="inline w-4 h-4 me-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

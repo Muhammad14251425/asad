@@ -7,9 +7,6 @@ import Quality from "@/components/Quality";
 import Try from "@/components/Try";
 import Try1 from "@/components/Try1";
 
-
-
-
 export default function Home() {
   return (
     <main className="">
@@ -26,14 +23,6 @@ export default function Home() {
       <div className="h-auto">
       <Try1 />
       </div>
-     
-
-      {/* <div className="hidden lg:block">
-        <Hero3 />
-      </div>
-      <div className="lg:hidden">
-        <Hero4 />
-      </div> */}
     </main>
   );
 }

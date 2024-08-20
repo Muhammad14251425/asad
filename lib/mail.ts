@@ -10,6 +10,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const mailOptions = {
+  from: process.env.EMAIL,
+  to: ["muhammadfawwad88@gmail.com"],
+};
+
 export async function sendMail({
   to,
   name,
@@ -23,7 +28,7 @@ export async function sendMail({
 }) {
   const mailOptions = {
     from: process.env.EMAIL,
-    to: ["muhammadfawwad5353@gmail.com"],
+    to: ["asadomer214@gmail.com"],
   };
   try {
     const mail = await transporter.sendMail({
@@ -98,71 +103,84 @@ export async function sendContactUsMail(
   const to = formData.get("to") as string;
   const vehicle = formData.get("vehicle") as string;
 
-  const mailOptions = {
-    from: process.env.EMAIL,
-    to: ["asadomer214@gmail.com"],
-  };
-
   try {
     const mail = await transporter.sendMail({
       ...mailOptions,
-      subject: "New Vehicle Booking Request",
+      subject: "🚀 New Vehicle Booking Request",
       text: `Hi Team, A new booking request has been received. Here are the details:\n\nName: ${name}\nPhone Number: ${phoneNumber}\nAddress: ${address}\nEmail: ${email}\nDelivery Type: ${deliveryType}\nFrom: ${from}\nTo: ${to}\nSelected Vehicle: ${vehicle}\n\nPlease review and process the request accordingly.`,
       html: `
-        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; background-color: #f4f4f4; padding: 20px;">
-          <table style="width: 100%; max-width: 600px; margin: auto; border-collapse: collapse; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <thead>
-              <tr>
-                <th style="padding: 30px; text-align: center; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: #ffffff;">
-                  <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 1px;">New Vehicle Booking Request</h1>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 30px; text-align: left; background-color: #ffffff;">
-                  <p style="font-size: 20px; margin: 0 0 15px;">Hello Team,</p>
-                  <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                    We have received a new vehicle booking request with the following details:
-                  </p>
-                  <p style="font-size: 16px; line-height: 1.6; color: #555555; margin: 0 0 20px;">
-                    <strong>Name:</strong> ${name}<br>
-                    <strong>Phone Number:</strong> ${phoneNumber}<br>
-                    <strong>Address:</strong> ${address}<br>
-                    <strong>Email:</strong> ${email}<br>
-                    <strong>Delivery Type:</strong> ${deliveryType}<br>
-                    <strong>From:</strong> ${from}<br>
-                    <strong>To:</strong> ${to}<br>
-                    <strong>Selected Vehicle:</strong> ${vehicle}<br>
-                  </p>
-                  <p style="font-size: 16px; line-height: 1.6; color: #555555; margin: 0 0 20px;">
-                    Please review the request and proceed with the necessary arrangements.
-                  </p>
-                  <a href="https://asadullah.vercel.app/" style="display: inline-block; padding: 10px 20px; background-color: #2575fc; color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 16px; font-weight: bold; margin-top: 20px;">View Request</a>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 20px; background-color: #f4f4f4; text-align: center; color: #777777; font-size: 14px;">
-                  <p style="margin: 0 0 10px;">Connect with us:</p>
-                  <a href="https://twitter.com/yourcompany" style="margin: 0 5px; text-decoration: none;">
-                    <img src="https://yourcompany.com/icons/twitter.png" alt="Twitter" style="width: 24px; height: 24px;">
-                  </a>
-                  <a href="https://facebook.com/yourcompany" style="margin: 0 5px; text-decoration: none;">
-                    <img src="https://yourcompany.com/icons/facebook.png" alt="Facebook" style="width: 24px; height: 24px;">
-                  </a>
-                  <a href="https://instagram.com/yourcompany" style="margin: 0 5px; text-decoration: none;">
-                    <img src="https://yourcompany.com/icons/instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
-                  </a>
-                  <p style="margin-top: 20px; color: #aaaaaa;">
-                    © 2024 Your Company. All rights reserved.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div style="font-family: 'Segoe UI', Roboto, Arial, sans-serif; color: #333; background-color: #f7f8fa; padding: 40px; text-align: center;">
+          <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+            <div style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: #ffffff; padding: 40px 30px;">
+              <h1 style="font-size: 32px; margin: 0;">🚀 New Vehicle Booking Request!</h1>
+              <p style="font-size: 18px; margin: 15px 0 0;">You've got a new booking request.</p>
+            </div>
+            <div style="padding: 30px;">
+              <p style="font-size: 18px; color: #555; margin: 0 0 15px; text-align: left;">Hello Team,</p>
+              <p style="font-size: 16px; line-height: 1.6; color: #777; text-align: left;">
+                We have received a new vehicle booking request with the following details:
+              </p>
+              <table style="width: 100%; margin: 20px 0; text-align: left; color: #555;">
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Name:</strong></td>
+                  <td>${name}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Phone Number:</strong></td>
+                  <td>${phoneNumber}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Address:</strong></td>
+                  <td>${address}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Email:</strong></td>
+                  <td>${email}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Delivery Type:</strong></td>
+                  <td>${deliveryType}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>From:</strong></td>
+                  <td>${from}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>To:</strong></td>
+                  <td>${to}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Selected Vehicle:</strong></td>
+                  <td>${vehicle}</td>
+                </tr>
+              </table>
+              <p style="font-size: 16px; line-height: 1.6; color: #555555; margin: 0 0 20px;">
+                Please review the request and proceed with the necessary arrangements.
+              </p>
+              <a href="https://asadullah.vercel.app/" style="display: inline-block; padding: 12px 25px; background-color: #2575fc; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold; margin-top: 20px;">View Request</a>
+            </div>
+            <div style="background-color: #f7f8fa; padding: 20px; text-align: center; color: #999; font-size: 14px;">
+              <p style="margin: 0 0 10px;">Stay connected:</p>
+              <div>
+                <a href="https://twitter.com/yourcompany" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://yourcompany.com/icons/twitter.png" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                <a href="https://facebook.com/yourcompany" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://yourcompany.com/icons/facebook.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </a>
+                <a href="https://instagram.com/yourcompany" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://yourcompany.com/icons/instagram.png" alt="Instagram" style="width: 30px; height: 30px;">
+                </a>
+              </div>
+              <p style="margin-top: 20px; color: #aaa;">
+                © 2024 Your Company. All rights reserved.
+              </p>
+            </div>
+          </div>
         </div>
       `,
     });
+
     if (mail.accepted) {
       return { status: "success", message: "Todo added successfully" };
     } else if (mail.rejected) {
@@ -170,6 +188,88 @@ export async function sendContactUsMail(
     } else {
       return { status: "error", message: "Something went wrong" };
     }
+  } catch (error) {
+    return { status: "error", message: "Something went wrong" };
+  }
+}
+
+export async function contactUsForm(
+  state: { status: string; message: string },
+  formData: FormData
+) {
+  const firstname = formData.get("firstName") as string;
+  const lastname = formData.get("lastName") as string;
+  const email = formData.get("email") as string;
+  const phoneNumber = formData.get("phoneNumber") as string;
+  const reason = formData.get("reason") as string;
+
+  try {
+    const mail = await transporter.sendMail({
+      ...mailOptions,
+      subject: "🚀 New Inquiry from the Contact Form",
+      text: `Hi Team, 
+  A new inquiry has been submitted. Here are the details:
+  
+  Name: ${firstname} ${lastname}
+  Email: ${email}
+  Phone Number: ${phoneNumber}
+  Message: ${reason}
+  
+  Please review and respond accordingly.`,
+      html: `
+        <div style="font-family: 'Segoe UI', Roboto, Arial, sans-serif; color: #333; background-color: #f7f8fa; padding: 40px; text-align: center;">
+          <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+            <div style="background: linear-gradient(135deg, #ff8a00 0%, #e52e71 100%); color: #ffffff; padding: 40px 30px;">
+              <h1 style="font-size: 32px; margin: 0;">🚀 New Inquiry Received!</h1>
+              <p style="font-size: 18px; margin: 15px 0 0;">You've got a new message from your website's contact form.</p>
+            </div>
+            <div style="padding: 30px;">
+              <p style="font-size: 18px; color: #555; margin: 0 0 15px; text-align: left;">Hello Team,</p>
+              <p style="font-size: 16px; line-height: 1.6; color: #777; text-align: left;">
+                We have received a new inquiry with the following details:
+              </p>
+              <table style="width: 100%; margin: 20px 0; text-align: left; color: #555;">
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Name:</strong></td>
+                  <td>${firstname} ${lastname}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Email:</strong></td>
+                  <td>${email}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Phone Number:</strong></td>
+                  <td>${phoneNumber}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;"><strong>Message:</strong></td>
+                  <td>${reason}</td>
+                </tr>
+              </table>
+              <a href="https://asadullah.vercel.app/contactus" style="display: inline-block; padding: 12px 25px; background-color: #ff8a00; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold; margin-top: 20px;">View Submission</a>
+            </div>
+            <div style="background-color: #f7f8fa; padding: 20px; text-align: center; color: #999; font-size: 14px;">
+              <p style="margin: 0 0 10px;">Stay connected:</p>
+              <div>
+                <a href="https://twitter.com/yourcompany" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://yourcompany.com/icons/twitter.png" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                <a href="https://facebook.com/yourcompany" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://yourcompany.com/icons/facebook.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </a>
+                <a href="https://instagram.com/yourcompany" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://yourcompany.com/icons/instagram.png" alt="Instagram" style="width: 30px; height: 30px;">
+                </a>
+              </div>
+              <p style="margin-top: 20px; color: #aaa;">
+                © 2024 Your Company. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      `,
+    });
+    return { status: "success", message: mail.messageId };
   } catch (error) {
     return { status: "error", message: "Something went wrong" };
   }

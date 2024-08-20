@@ -1,7 +1,9 @@
 "use client"
+import { contactUsForm } from "@/lib/mail"
 import { cn } from "@/lib/utils"
 import { X } from "lucide-react"
-import { FormEvent } from "react"
+import { FormEvent, useEffect, useRef } from "react"
+import { useFormState, useFormStatus } from "react-dom"
 
 interface ConatactUsFormClientProps {
   openForm: boolean
@@ -9,6 +11,16 @@ interface ConatactUsFormClientProps {
 }
 
 const ConatactUsFormClient = ({ openForm, setOpenForm }: ConatactUsFormClientProps) => {
+  const ref = useRef<HTMLFormElement>(null)
+  const [state, formAction] = useFormState(contactUsForm, { status: " ", message: "" })
+  const { status, message } = state;
+  const { pending } = useFormStatus()
+
+  useEffect(() => {
+    if (status === "success") {
+      ref.current?.reset()
+    }
+  }, [status])
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -22,14 +34,18 @@ const ConatactUsFormClient = ({ openForm, setOpenForm }: ConatactUsFormClientPro
       <h2 className='text-black text-5xl'>Get in Touch</h2>
       <p className='text-gray-500 font-semibold font-sans'>You can reach us anytime</p>
       <div>
-        <form className="space-y-4" onSubmit={submit}>
+        <form ref={ref} className="space-y-4" action={formAction}>
           <div className="flex space-x-4">
             <input
+              required
+              name="firstName"
               type="text"
               placeholder="First name"
               className="w-full p-3 px-4 border border-gray-300 py- rounded-3xl"
             />
             <input
+              required
+              name="lastName"
               type="text"
               placeholder="Last name"
               className="w-full p-3 px-4 border border-gray-300 py- rounded-3xl"
@@ -37,6 +53,8 @@ const ConatactUsFormClient = ({ openForm, setOpenForm }: ConatactUsFormClientPro
           </div>
           <div>
             <input
+              required
+              name="email"
               type="email"
               placeholder="Your email"
               className="w-full p-3 px-4 border border-gray-300 py- rounded-3xl"
@@ -44,6 +62,8 @@ const ConatactUsFormClient = ({ openForm, setOpenForm }: ConatactUsFormClientPro
           </div>
           <div>
             <input
+              required
+              name="phoneNumber"
               type="text"
               placeholder="Phone number"
               className="w-full p-3 px-4 border border-gray-300 py- rounded-3xl"
@@ -51,20 +71,20 @@ const ConatactUsFormClient = ({ openForm, setOpenForm }: ConatactUsFormClientPro
           </div>
           <div>
             <textarea
+              required
+              name="reason"
               placeholder="How can we help?"
               className="w-full p-3 px-4 border border-gray-300 py- rounded-3xl"
               rows={4}
             ></textarea>
           </div>
-          {/* <AnimatedButton> */}
-
-            <button
+          <button
             type="submit"
-            className="w-full py-2 bg-blue-600 text-white font-bold  rounded-3xl hover:bg-blue-700 transition duration-200"
-            >
+            // disabled={}
+            className="w-full py-2 disabled:cursor-not-allowed bg-blue-600 text-white font-bold  rounded-3xl hover:bg-blue-700 transition duration-200"
+          >
             Submit
           </button>
-          {/* </AnimatedButton> */}
         </form>
       </div>
     </div>
