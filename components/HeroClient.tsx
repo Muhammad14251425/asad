@@ -33,8 +33,8 @@ const HeroClient = () => {
                 {imageData.map((item, index) => (
                     <div key={index} className='relative' onClick={() => setCheckIndex(index)}>
                         <motion.div
-                            initial={{ opacity: 0, y: -50, z: -10 }}
-                            animate={{ opacity: checkIndex === index ? 1 : 0, y: checkIndex === index ? 0 : -50, z: checkIndex === index ? 0 : -10 }}
+                            initial={{ opacity: 0, y: 50, z: -10 }}
+                            animate={{ opacity: checkIndex === index ? 1 : 0, y: checkIndex === index ? 0 : 250, z: checkIndex === index ? 0 : -10 }}
                             transition={{ duration: 0.5, ease: "easeInOut" }}
                             className={`absolute cursor-pointer top-20 left-2 space-y-4 text-${item.color} z-10 text-left`}
                         >
@@ -48,7 +48,7 @@ const HeroClient = () => {
                             height={400}
                             className={cn(
                                 'cursor-pointer object-cover h-96 w-96 rounded-md transform transition-all duration-1000',
-                                checkIndex === index ? " md:translate-y-16 blur-sm" : " md:translate-y-0 blur-none"
+                                checkIndex === index ? " md:translate-y-0 blur-sm" : " md:translate-y-16 blur-none"
                             )}
                         />
                     </div>

@@ -23,7 +23,11 @@ const config = {
         "twh": "1200px",
         "1098": "1098px",
         "992": "992px",
+        "450": "450px",
         "400": "400px",
+        "500": "500px",
+        "560": "560px",
+        "1380": "1380px",
       },
       backgroundImage: {
         'hyundai-trucks': "url('/public/Dumper.jpg')",

@@ -12,9 +12,10 @@ export default function Example() {
   const { scrollY } = useScroll();
   const router = useRouter()
   const [hidden, setHidden] = useState(false);
+  const [white, setWhite] = useState(false)
 
   const { setShowAppointment } = useAppointmentContext();
-  
+
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -23,11 +24,18 @@ export default function Example() {
     } else {
       setHidden(false);
     }
+    if (latest > 350) {
+      setWhite(true)
+    }
+    else if(latest < 350){
+      setWhite(false)
+    }
+    
   });
 
   return (
     <motion.header
-      className="border-b sticky top-0 z-50 bg-white px-4"
+      className={`sticky top-0 z-50  px-4 ${white && "bg-white border-b"}`}
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -56,7 +64,7 @@ export default function Example() {
           </Link>
         </div>
         <div className="flex items-center gap-x-3">
-          <Button variant="destructive" onClick={() => {setShowAppointment(true); router.push("#")}} className="rounded-full">Book an Appointment</Button>
+          <Button variant="destructive" onClick={() => { setShowAppointment(true); router.push("#") }} className="rounded-full">Book an Appointment</Button>
           <div className="md:hidden">
             <SmallNavbar />
           </div>

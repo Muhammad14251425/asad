@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,7 +6,12 @@ import Hero from "@/components/Landingpage/Hero";
 import AppointmentContextProvider from "@/context/AppointmentContext";
 import ContactUsClient from "@/components/ContactUsClient";
 
-const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "500", "700"] });
+import { Playfair_Display } from "next/font/google";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'], // Adjust as necessary
+  weight: ['400', '700'], // Add the weights you need
+});
 
 
 export const metadata: Metadata = {
@@ -22,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`min-h-screen flex flex-col ${roboto.className}`}>
+      <body className={`min-h-screen flex flex-col ${playfairDisplay.className}`}>
         <AppointmentContextProvider>
           <Header />
           <main className="flex-grow">

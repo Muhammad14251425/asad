@@ -21,32 +21,73 @@ import {
 import { useAppointmentContext } from "@/context/AppointmentContext"
 import { Input } from "./ui/input"
 
-const frameworks = [
+const vehicles = [
   {
-    value: "dumper",
-    label: "Dumper",
+    value: "20-ft-mazda",
+    label: "20 ft Mazda",
   },
   {
-    value: "carry",
-    label: "Carry",
+    value: "16-ft-mazda",
+    label: "16 ft Mazda",
   },
   {
-    value: "hyundai-big-truck",
-    label: "Hyundai Big truck",
+    value: "hyundai",
+    label: "Hyundai",
   },
   {
-    value: "load-van",
-    label: "Load Van",
+    value: "20-ft-container",
+    label: "20 ft Container",
+  },
+  {
+    value: "40-ft-container",
+    label: "40 ft Container",
+  },
+  {
+    value: "24-ft-container",
+    label: "24 ft Container",
+  },
+  {
+    value: "22-ft-mazda",
+    label: "22 ft Mazda",
+  },
+  {
+    value: "40-ft-flat-bed",
+    label: "40 ft Flat Bed",
+  },
+  {
+    value: "pickup",
+    label: "Pickup",
+  },
+  {
+    value: "hyundai",
+    label: "Hyundai",
+  },
+  {
+    value: "20-ft-high-cube",
+    label: "20 ft High Cube",
+  },
+  {
+    value: "16-ft-container",
+    label: "16 ft Container",
+  },
+  {
+    value: "18-ft-mazda",
+    label: "18 ft Mazda",
+  },
+  {
+    value: "40-ft-open-trailer",
+    label: "40 ft Open Trailer",
+  },
+  {
+    value: "16-ft-mazda-local",
+    label: "16 ft Mazda Local",
   },
   {
     value: "train",
     label: "Train",
   },
-  {
-    value: "carry-truck",
-    label: "Carry Truck",
-  },
-]
+];
+
 
 export function Search() {
   const [open, setOpen] = React.useState(false)
@@ -60,7 +101,7 @@ export function Search() {
           className="max-w-xl mx-auto rounded-full justify-between"
           name="vehicle"
           value={value
-            ? frameworks.find((framework) => framework.value === value)?.label
+            ? vehicles.find((framework) => framework.value === value)?.label
             : "Select Vehicle"}
         />
       </PopoverTrigger>
@@ -70,22 +111,23 @@ export function Search() {
           <CommandList >
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup >
-              {frameworks.map((framework) => (
+              {vehicles.map((vehicle) => (
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  key={vehicle.value}
+                  value={vehicle.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
+                  className="font-sans"
                 >
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      value === vehicle.value ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {framework.label}
+                  {vehicle.label}
                 </CommandItem>
               ))}
             </CommandGroup>
