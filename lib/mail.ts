@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
   from: process.env.EMAIL,
-  to: ["muhammadfawwad88@gmail.com"],
+  to: ["asadomer214@gmail.com"],
 };
 
 export async function sendMail({
@@ -26,10 +26,7 @@ export async function sendMail({
   message: string;
   status: string;
 }) {
-  const mailOptions = {
-    from: process.env.EMAIL,
-    to: ["asadomer214@gmail.com"],
-  };
+  
   try {
     const mail = await transporter.sendMail({
       ...mailOptions,
