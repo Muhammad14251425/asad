@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, stagger, useAnimate, useInView } from "framer-motion";
+import { motion, stagger, useAnimate } from "framer-motion";
 import { useEffect } from "react";
 
 export const TypewriterEffect = ({
@@ -25,23 +25,20 @@ export const TypewriterEffect = ({
   });
 
   const [scope, animate] = useAnimate();
-  // const isInView = useInView(scope);
   useEffect(() => {
-    // if (isInView) {
-      animate(
-        "span",
-        {
-          display: "inline-block",
-          opacity: 1,
-          width: "fit-content",
-        },
-        {
-          duration: 0.3,
-          delay: stagger(0.1),
-          ease: "easeInOut",
-        }
-      );
-    // }
+    animate(
+      "span",
+      {
+        display: "inline-block",
+        opacity: 1,
+        width: "fit-content",
+      },
+      {
+        duration: 0.3,
+        delay: stagger(0.1),
+        ease: "easeInOut",
+      }
+    );
   }, [animate]);
 
   const renderWords = () => {
@@ -69,6 +66,7 @@ export const TypewriterEffect = ({
       </motion.div>
     );
   };
+
   return (
     <div
       className={cn(
@@ -86,8 +84,6 @@ export const TypewriterEffect = ({
         }}
         transition={{
           duration: 0.8,
-          repeat: Infinity,
-          repeatType: "reverse",
         }}
         className={cn(
           "inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-blue-500",
@@ -117,6 +113,7 @@ export const TypewriterEffectSmooth = ({
       text: word.text.split(""),
     };
   });
+
   const renderWords = () => {
     return (
       <div>
@@ -143,42 +140,23 @@ export const TypewriterEffectSmooth = ({
     <div className={cn("flex space-x-1 my-6 ", className)}>
       <motion.div
         className="overflow-hidden pb-2"
-        initial={{
-          width: "0%",
-        }}
-        whileInView={{
-          width: "fit-content",
-        }}
-        transition={{
-          duration: 1,
-          ease: "linear",
-          delay: 0.2,
-        }}
+        initial={{ width: "0%" }}
+        animate={{ width: "fit-content" }}
+        transition={{ duration: 1, ease: "linear", delay: 0.2 }}
       >
         <div
           className="text-xs sm:text-base md:text-7xl lg:text-8xl "
-          style={{
-            whiteSpace: "nowrap",
-          }}
+          style={{ whiteSpace: "nowrap" }}
         >
           {renderWords()}{" "}
-        </div>{" "}
+        </div>
       </motion.div>
       <motion.span
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.8,
-
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
         className={cn(
-          " rounded-sm w-[4px] hidden h-4 sm:h-6 xl:h-24 bg-blue-500",
+          "rounded-sm w-[4px] hidden h-4 sm:h-6 xl:h-24 bg-blue-500",
           cursorClassName
         )}
       ></motion.span>
